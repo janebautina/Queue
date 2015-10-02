@@ -59,10 +59,28 @@ public class Queue{
     
     private void resize(int newSize){
         int [] newArray = new int[newSize];
-        for (int i = 0; i <= newSize; i++){
-            newArray[i] = a[i];
+        if (tail >= head){
+            int j = 0;
+            for (int i = head; i <= tail; i++){
+               newArray[j] = a[i];
+               j++;   
+            }
+        }
+        else{
+            int j=0;
+            for (int i = head; i < capacity;i++){
+                newArray[j] = a[i];
+                j++;
+            }
+            for (int i = 0; i <= tail; i++){
+                newArray[j] = a[i];
+                j++;
+            }
+            
         }
         a = newArray;
+        head = 0;
+        tail = elem_num;
     }
     
     public int size(){
