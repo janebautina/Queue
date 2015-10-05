@@ -26,34 +26,22 @@ public class Queue{
            capacity = capacity * 2;
            resize(capacity);
         }
-        if(head == tail){
-            if(elem_num <= capacity){
-                a[tail+1] = elem;
-                tail++;
-                elem_num++;
-            }
-        }
-        else if (head < tail){
-            if(tail < capacity){
-                a[tail+1] = elem;
-                tail++;
-                elem_num++;
-            }
-            else{
-                a[0] = elem;
-                tail = 0;
-                elem_num++;
-            }  
+        if(tail == capacity - 1){
+            a[0] = elem;
+            tail = 0;
+            elem_num++;
         }
         else{
             a[tail+1] = elem;
             tail++;
             elem_num++;
-        }
-     
+        }  
     }
     
     public int dequeue() {
+        if (isEmpty()){}
+        // Exception("Queue is empty, dequeue was denied");
+        //TODO
         return 0;
     }
     
@@ -80,7 +68,7 @@ public class Queue{
         }
         a = newArray;
         head = 0;
-        tail = elem_num;
+        tail = elem_num - 1;
     }
     
     public int size(){
