@@ -39,10 +39,11 @@ public class Queue{
     }
     
     public int dequeue() {
-        if (isEmpty()){}
-        // Exception("Queue is empty, dequeue was denied");
-        //TODO
-        return 0;
+        if (isEmpty())
+             return 0;
+        head++;
+        elem_num--;
+        return a[head];
     }
     
     private void resize(int newSize){
