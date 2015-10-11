@@ -12,9 +12,9 @@ import edu.princeton.cs.algs4.StdOut;
  * @author  Evgeniya Bautina
  * @version 1.0 11 Oct 2015
  */   
-public class Queue {
+public class Queue<Key> {
     private int capacity;   
-    private int [] q;    
+    private Key[] q;    
     private int elemNum; //number of elements in the queue   
     private int head; // pointer to the first element in the queue
     private int tail; //pointer to the last element in the queue
@@ -26,7 +26,7 @@ public class Queue {
     */
     public Queue(int size) {
         capacity = size;
-        q = new int[capacity];
+        q = (Key[]) new Object[capacity];
     }
     
    /**
@@ -46,7 +46,7 @@ public class Queue {
     * @param  elem  element to be added to the queue
     * @see         Queue
     */   
-    public void enqueue(int elem) { //add an element to the queue
+    public void enqueue(Key elem) { //add an element to the queue
         if (elemNum == capacity) {
            resize();
         }
@@ -68,9 +68,9 @@ public class Queue {
     * @return      element deleted from the queue
     * @see         Queue
     */
-    public int dequeue() { 
+    public Key dequeue() { 
         if (isEmpty())
-            return 0;
+            return null;
         elemNum--;
         return q[head++];
     }
@@ -83,7 +83,7 @@ public class Queue {
     private void resize() { // double array size
         int oldCapacity = capacity;
         capacity *= 2;
-        int [] newArray = new int[capacity];
+        Key [] newArray = (Key[]) new Object[capacity];
         if (tail > head) {
             int j = 0;
             for (int i = head; i <= tail - 1; i++) {
@@ -124,7 +124,7 @@ public class Queue {
     public String toString() {
         String st = "";
         for (int i = 0; i < capacity; i++) {
-           st = st + new Integer(q[i]).toString() + " -> ";
+           st = st + q[i].toString() + " -> ";
         }
         return st;    
     }    
