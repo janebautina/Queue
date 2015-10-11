@@ -33,7 +33,6 @@ public class Queue<Key> {
     * Checks a queue for emptiness. 
     *
     * @return      true if queue is empty
-    * @see         Queue
     */
     public boolean isEmpty() { 
        return elemNum == 0; 
@@ -44,7 +43,6 @@ public class Queue<Key> {
     * calls resize funcion to double the array size.
     *
     * @param  elem  element to be added to the queue
-    * @see         Queue
     */   
     public void enqueue(Key elem) { //add an element to the queue
         if (elemNum == capacity) {
@@ -78,7 +76,6 @@ public class Queue<Key> {
    /**
     * Doubles an array size then the array is full.  
     *
-    * @see         Queue
     */
     private void resize() { // double array size
         int oldCapacity = capacity;
@@ -112,7 +109,6 @@ public class Queue<Key> {
     * Returns a number of elements in the queue. 
     *
     * @return      number of elements in the queue
-    * @see         Queue
     */
     public int size() { // size of the queue
         return elemNum;
